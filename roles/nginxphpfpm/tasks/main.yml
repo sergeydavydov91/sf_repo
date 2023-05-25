@@ -12,9 +12,17 @@
 - name: create index.php
   template:
     src: index.php.j2
-    dest: /var/www/html/index.php
+    dest: /opt/nginx/ansible/index.php
+
+- name: Create /opt/nginx/ansible
+  ansible.builtin.file:
+    path: /opt/nginx/ansible
+    state: directory
+    mode: '0755'
 
 - name: change default
   template:
     src: default.j2
     dest: /etc/nginx/sites-enabled/default
+  notify:
+  - Restart nginx
