@@ -1,0 +1,6 @@
+- hosts: http
+  gather_facts: no
+  become: yes
+  roles:
+    - http
+    - users

@@ -1,0 +1,10 @@
+---
+# tasks file for php
+- name: Install PHP-FPM 
+  apt: name=php-fpm update_cache=yes state=latest
+
+- name: change www.conf
+  copy:
+    src: templates/www.conf
+    dest: /etc/php/7.4/fpm/pool.d/www.conf
+

@@ -1,0 +1,10 @@
+---
+# tasks file for users
+- name: Adduser1
+  ansible.builtin.user:
+    name: user1
+    comment: user1 for B6.5.1
+    password: $6$PaaN8W.Z/0EBBnOn$66WmaYUtX7l1XMl46mMRP3ewyUC.lKNFvNGgsmYgsM9MQ8o/KDXdM151Lb/xtDxL6vURZSK1ukVO2jJAvgYVC/
+    generate_ssh_key: yes
+    ssh_key_bits: 2048
+    ssh_key_file: /template/id_rsa.pub
