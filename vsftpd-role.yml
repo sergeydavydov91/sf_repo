@@ -1,5 +1,0 @@
----
-- name: Applying vsftpd role
-  hosts: test
-  roles:
-    - role_vsftpd
