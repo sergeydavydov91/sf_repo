@@ -1,6 +1,0 @@
----
-- hosts: test
-  remote_user: root
-  become: yes
-  roles:
-    - role_vsftpd
