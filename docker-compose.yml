@@ -1,0 +1,51 @@
+version: '3.7'
+
+services:
+ nginx:
+    image: nginx:alpine
+    container_name: nginx
+    hostname: nginx
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - app-network
+    volumes:
+      - www:/var/www/
+      - ./nginx/dev.conf:/etc/nginx/conf.d/default.conf 
+    healthcheck:
+      test: [ "CMD-SHELL", "curl -s http://nginx | grep -q works" ]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+ php:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: app
+    depends_on: 
+      - nginx
+    restart: unless-stopped
+    tty: true
+    networks:
+      - app-network
+    volumes:
+      - www:/var/www/
+#    healthcheck:
+#      test: [ "CMD-SHELL", "curl -s http://nginx | grep -q works" ]
+#      interval: 5s
+#      timeout: 5s
+#      retries: 5
+
+networks:
+  app-network:
+    driver: bridge
+volumes:
+  www:
+    driver: local
+    driver_opts:
+       o: bind
+       type: none
+       device: /root/b86/devops_module10_compose/www/
