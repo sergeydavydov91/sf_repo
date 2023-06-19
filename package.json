@@ -1,0 +1,22 @@
+{
+  "name": "sf_jquery",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sergeydavydov91/sf_repo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sergeydavydov91/sf_repo/issues"
+  },
+  "homepage": "https://github.com/sergeydavydov91/sf_repo#readme",
+  "dependencies": {
+    "jquery": "^3.7.0"
+  }
+}
